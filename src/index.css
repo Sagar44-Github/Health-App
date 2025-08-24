@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    /* Calmer teal primary */
+    --primary: 200 90% 45%;
+    --primary-foreground: 210 40% 98%;
+    /* Softer light-blue surfaces instead of grey */
+    --secondary: 200 50% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 200 50% 96%;
+    /* Increase contrast for body copy */
+    --muted-foreground: 215 20% 35%;
+    --accent: 200 50% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 200 90% 45%;
+    --radius: 0.75rem;
+    /* Sidebar variables */
+    --sidebar-background: 215 28% 17%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 200 90% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 22%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 215 25% 25%;
+    --sidebar-ring: 200 90% 45%;
+  }
+  .dark {
+    --background: 215 28% 17%;
+    --foreground: 210 20% 98%;
+    --card: 215 25% 20%;
+    --card-foreground: 210 20% 98%;
+    --popover: 215 25% 20%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 200 90% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 28% 20%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 28% 20%;
+    --muted-foreground: 215 15% 75%;
+    --accent: 215 28% 20%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 215 25% 25%;
+    --input: 215 25% 25%;
+    --ring: 200 90% 45%;
+    /* Sidebar variables - dark */
+    --sidebar-background: 215 32% 15%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 200 90% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 28% 20%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 215 28% 22%;
+    --sidebar-ring: 200 90% 45%;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Aesthetic base */
+:root {
+  --card-radius: 16px;
+}
+
+body {
+  @apply bg-gradient-to-br from-blue-50 to-white dark:from-slate-900 dark:to-slate-950;
+}
+
+.container-responsive {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Crisp, non-grey cards */
+.content-card {
+  @apply border bg-white dark:bg-slate-900 rounded-2xl shadow-md hover:shadow-lg transition-shadow;
+}
+
+/* Soft section surface helper */
+.section-soft {
+  @apply rounded-2xl border bg-gradient-to-b from-blue-50 to-white dark:from-slate-900 dark:to-slate-950;
+}
+
+.medical-button {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.medical-input-with-icon {
+  @apply pl-9;
+}
+
+/* Narrow prose for better readability */
+.prose-narrow {
+  max-width: 65ch;
+}
+
+/* Prescription sheet styles */
+.prescription-sheet {
+  border: 1px solid hsl(var(--border));
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.97),
+    rgba(255, 255, 255, 0.94)
+  );
+}
+.prescription-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid hsl(var(--border));
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.prescription-clinic {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.prescription-sub {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}
+.prescription-rx {
+  font-size: 2rem;
+  font-weight: 800;
+  color: hsl(var(--primary));
+}
+.prescription-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px 16px;
+  padding: 8px 0 12px 0;
+}
+.prescription-section-title {
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+.prescription-med-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+.prescription-notes {
+  border-left: 3px solid hsl(var(--primary));
+  padding-left: 12px;
+}
+.prescription-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed hsl(var(--border));
+  padding-top: 10px;
+  margin-top: 12px;
+}
+.prescription-sign {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+}
+.prescription-stamp {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}
+
+@media print {
+  body {
+    background: #fff !important;
+  }
+  .prescription-sheet {
+    box-shadow: none !important;
+  }
+  .content-card {
+    border: none !important;
+  }
+}
